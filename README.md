@@ -1,9 +1,8 @@
 # where-the-cute-things-are-gm
 Lima Game Jam 2016 / Global Game Jam 2016
 
-Listen the Soundtrack on Soundcloud! CLICK HERE
-
-Download Soundtrack for Free Too! CLICK HERE
+Listen the Soundtrack on Soundcloud! [CLICK HERE](https://goo.gl/FT02AJ)
+Download Soundtrack for Free Too! [CLICK HERE](https://goo.gl/mwmrOX)
 
 ###Where The Cute Things Are by TeamMaltín:
 - Enrique Takahashi - Lead Programmer, Game Designer, SFX
