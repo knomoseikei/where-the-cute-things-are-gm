@@ -103,6 +103,10 @@ load_level(0);
     ++timer
     if instance_number(o_arrow) == 0 &amp;&amp; timer &gt; seqLength {
         gameState = "Cutscene";
+        if level = 2 {
+            gameState = "End";
+            o_curtain.door = 1;
+        }
     }
 if keyboard_check_pressed(vk_up)    {pressed = vk_up}
 if keyboard_check_pressed(vk_down)  {pressed = vk_down}
@@ -125,6 +129,11 @@ if pressed != -4 {
             if pressed == _arr.type {
                 //it's a hit
                 hit_arrow(pressed);
+                repeat(5) {
+                    var fx = instance_create(x, y, o_fx);
+                    fx.type = floor(random(2) + 1);
+                    fx.image_blend = make_color_rgb(192 + random(64), 192 + random(64), 128);
+                }
                 //delete arrow
                 with (_arr) instance_destroy();
                 ++sacrifice;
@@ -189,7 +198,17 @@ if musicDelay &gt; 0 {
     --musicDelay;
 } else {
     if musicDelay == 0 {
-        audio_play_sound(bgm_throwingAcid, 1, false);
+        switch (level) {
+            case 0:
+                audio_play_sound(bgm_throwingAcid, 1, false);
+                break;
+            case 1:
+                audio_play_sound(bgm_gogoTank, 1, false);
+                break;
+            case 2:
+                audio_play_sound(bgm_burningKey, 1, false);
+                break;
+        }
         musicDelay = -1;
     }
 }
@@ -267,10 +286,18 @@ if gameState == "Cutscene" {
     draw_set_color(make_color_rgb(170, 012, 165));
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
+    speechIndex = gods_enabled();
     draw_text(85, 85, slow_transcript(textIndex, speech[speechIndex]));
     ++textIndex;
     if ceil(textIndex / 2) &gt; string_length(speech[speechIndex]) {
-        //drawnext
+        if keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left) {
+            ++level;
+            textIndex = 0;
+            musicDelay = 30;
+            timer = 0;
+            load_level(level);
+            gameState = "Game";
+        }
     }
 }
 </string>

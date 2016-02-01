@@ -33,6 +33,7 @@
     <sprite>sprites\s_cutscenes</sprite>
     <sprite>sprites\s_blood</sprite>
     <sprite>sprites\s_shine</sprite>
+    <sprite>sprites\s_effects</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -52,6 +53,7 @@
     <script>scripts\string_cap.gml</script>
     <script>scripts\find_and_kill.gml</script>
     <script>scripts\sequences.gml</script>
+    <script>scripts\gods_enabled.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\f_0</font>
@@ -69,6 +71,7 @@
     <object>objects\o_curtain</object>
     <object>objects\o_cutscenes</object>
     <object>objects\o_blood</object>
+    <object>objects\o_fx</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\r_game</room>

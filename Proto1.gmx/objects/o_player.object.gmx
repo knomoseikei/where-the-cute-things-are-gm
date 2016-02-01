@@ -71,9 +71,8 @@ for (var j = 0; j &lt; 4; ++j) {
     var tempJ = (j * 2) - 3;
     follower.ground = 450 + ((abs(tempJ) - 1) * 30);
     follower.type = j;
-    follower.y = follower.ground
-    follower.depth = -follower.y;
-    follower.x = (room_width / 2) + (tempJ * 120)
+    follower.y = follower.ground;
+    follower.x = (room_width / 2) + (tempJ * 120);
 }
 </string>
           </argument>

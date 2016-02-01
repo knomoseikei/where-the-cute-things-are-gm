@@ -60,11 +60,18 @@ position += spd;
 if position &gt; 1024 {
     door = -1;
     position = 1024;
-    if o_control.gameState == "Cutscene" {
-        instance_create(x, y, o_cutscenes)
+    if o_control.gameState == "End" {
+        cuts = instance_create(x, y, o_cutscenes);
+        cuts.scene = 3;
+        if gods_enabled() &lt; 4 {
+            cuts.scene = 1;
+        }
+        if instance_number(o_player) == 0 {
+            cuts.scene = 2;
+        }        
     } else {
         with (o_cutscenes) {
-            instance_destroy();
+            game_restart();
         }
     }
 }
